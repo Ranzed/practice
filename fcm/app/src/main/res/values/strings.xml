@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Cloud Messaging</string>
+    <string name="hello_message">Hello world</string>
+</resources>
