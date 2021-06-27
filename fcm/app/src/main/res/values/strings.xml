@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Cloud Messaging</string>
     <string name="hello_message">Hello world</string>
+
+    <string name="notification_channel_name">Fcm channel</string>
+    <string name="notification_channel_description">Fcm channel description</string>
+
 </resources>
