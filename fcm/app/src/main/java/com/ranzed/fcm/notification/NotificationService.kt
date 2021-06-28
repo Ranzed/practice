@@ -12,7 +12,7 @@ object NotificationService {
     private val CHANNEL_ID = "fcm_channel_id"
     private var initialized = false
 
-    fun createNotification(title: String, message : String, ctx : Context) {
+    fun createNotification(title: String?, message : String?, ctx : Context) {
         if (!initialized)
             return
 
