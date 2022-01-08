@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -18,4 +19,7 @@ android {
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'com.google.android.material:material:1.4.0'
+
+    implementation 'com.google.dagger:dagger:2.34'
+    kapt 'com.google.dagger:dagger-compiler:2.34'
 }
