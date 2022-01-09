@@ -10,7 +10,7 @@ interface Lesson1Component { // why name "component"? graph?
 
     fun abcd(): Lesson1Main
 
-    fun inject(d: DaggerActivity)
+    //fun inject(d: DaggerActivity)
 
     fun inject(l: Lesson1Main)
 }
