@@ -12,6 +12,9 @@ class Lesson1Module { // must be class or object
     }
 
     @Provides
+    fun createLesson1Main(): Lesson1Main = Lesson1Main()
+
+    @Provides
     fun createSimplePart1(): SimplePart1 = SimplePart1()
 
     @Provides
