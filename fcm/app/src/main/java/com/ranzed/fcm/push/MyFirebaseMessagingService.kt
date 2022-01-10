@@ -9,11 +9,12 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
     override fun onNewToken(p0: String) {
         super.onNewToken(p0)
+        Log.d("FCM", "MyFirebaseMessagingService onNewToken = $p0")
     }
 
     override fun onMessageReceived(rm: RemoteMessage) {
         super.onMessageReceived(rm)
-        Log.d("FCM", "onMessageReceived {%s}".format(rm.toString()))
+        Log.d("FCM", "MyFirebaseMessagingService onMessageReceived = $rm")
         NotificationService.createNotification(rm.notification?.title , rm.notification?.body, this)
     }
 }

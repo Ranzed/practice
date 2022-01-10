@@ -9,20 +9,21 @@ import com.ranzed.fcm.R
 
 object NotificationService {
 
-    private val CHANNEL_ID = "fcm_channel_id"
+    private const val CHANNEL_ID = "fcm_channel_id"
     private var initialized = false
 
     fun createNotification(title: String?, message : String?, ctx : Context) {
         if (!initialized)
             return
 
-        val builder = NotificationCompat.Builder(ctx, CHANNEL_ID)
-            .setSmallIcon(R.mipmap.ic_launcher)
-            .setContentTitle(title)
-            .setContentText(message)
-
-        val notificationManager = ctx.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        notificationManager.notify(0, builder.build())
+        with(ctx.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager) {
+            notify(0,
+                NotificationCompat.Builder(ctx, CHANNEL_ID).apply {
+                    setSmallIcon(R.mipmap.ic_launcher)
+                    setContentTitle(title)
+                    setContentText(message) }
+                    .build())
+        }
 
     }
 
@@ -39,9 +40,7 @@ object NotificationService {
             return
 
         val notificationManager = ctx.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-
-        val c = notificationManager.getNotificationChannel(CHANNEL_ID)
-        if (c != null)
+        if (notificationManager.getNotificationChannel(CHANNEL_ID) != null)
             return
 
         val channel = NotificationChannel(CHANNEL_ID,
