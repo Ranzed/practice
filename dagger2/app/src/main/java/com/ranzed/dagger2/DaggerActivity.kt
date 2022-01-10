@@ -4,10 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.ranzed.dagger2.lesson1.Lesson1Main
-import com.ranzed.dagger2.lesson2.L2Analytics
-import com.ranzed.dagger2.lesson2.L2NewsRepo
-import com.ranzed.dagger2.lesson2.NewsItemTrackingAction
-import com.ranzed.dagger2.lesson2.NewsItemTrackingActionType
+import com.ranzed.dagger2.lesson2.*
 import javax.inject.Inject
 
 class DaggerActivity: AppCompatActivity() {
@@ -32,5 +29,12 @@ class DaggerActivity: AppCompatActivity() {
     fun trackStart(analytics: L2Analytics) {
         analytics.trackAction(NewsItemTrackingAction(NewsItemTrackingActionType.OPEN, 0))
         Log.i("test", "track open action by $analytics")
+    }
+
+    @Inject
+    fun assistedInject(f: L2AssistedClass.Factory) {
+        val l2A = f.create("assistedInjectTesting")
+        l2A.doWork()
+        Log.i("test", "assistedInject $l2A")
     }
 }
